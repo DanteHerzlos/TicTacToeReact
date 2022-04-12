@@ -1,24 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState, useEffect } from 'react';
+import GameField from './GameField';
+import Modal from './Modal/Modal';
+import { ResetContext } from './Context';
 
 function App() {
+  const [winner, setWinner] = useState('')
+  const [isReset, setIsReset] = useState(false)
+  const [modalActive, setModalActive] = useState(false)
+
+  useEffect(() => {
+    if (winner !== '') {
+      setModalActive(!modalActive)
+    }
+  }, [winner])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ResetContext.Provider value={{
+      isReset,
+      setIsReset
+    }}>
+      <div className="App"> 
+        <GameField setWinner={setWinner}/>
+        <Modal active={modalActive} setActive={setModalActive} winner={winner} />
+      </div>
+    </ResetContext.Provider>
   );
 }
 

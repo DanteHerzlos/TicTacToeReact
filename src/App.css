@@ -36,3 +36,40 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+.tic-button {
+  background-color: white;
+  border: 1px solid black;
+  margin: 3px;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 0;
+}
+
+button:disabled{
+  color: black;
+}
+
+.btn-reset{
+  margin-top: 30px;
+  background-color: salmon;
+  border: 2px solid black;
+  border-radius: 5px;
+  height: 50px;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.tbl {
+  max-width: 170px;
+  margin: auto;
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
